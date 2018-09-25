@@ -1,4 +1,7 @@
 import React from 'react';
+import SearchField from './components/SearchField/SearchField';
+import CityInformation from './components/CityInformation/CityInformation';
+import SearchHistory from './components/SearchHistory/SearchHistory';
 
 export default class App extends React.Component {
   
@@ -10,28 +13,33 @@ export default class App extends React.Component {
           <h1 className='display-3 text-center'>Weather Application</h1>
           <h3 className='display-9 text-center'> Always know if you'll need an umbrella </h3>
         </div>
+        <SearchField/>
+        {/***SearchField component begins***/}
+        {/* <div> */}
+          {/*** Buttons with city names ***/}
+          {/* <button className="btn btn-primary" type="button" > San Diego
+          </button>
+          <button className="btn btn-primary" type="button" > New York
+          </button>
+          <button className="btn btn-primary" type="button" > Washington DC
+          </button>
+          <button className="btn btn-primary" type="button" > London
+          </button>
+          <button className="btn btn-primary" type="button" > Tokyo
+          </button> */}
 
-        {/* Buttons with city names */}
-        <button className="btn btn-primary" type="button" > San Diego
-        </button>
-        <button className="btn btn-primary" type="button" > New York
-        </button>
-        <button className="btn btn-primary" type="button" > Washington DC
-        </button>
-        <button className="btn btn-primary" type="button" > London
-        </button>
-        <button className="btn btn-primary" type="button" > Tokyo
-        </button>
 
+          {/***Search bar with button***/}
+          {/* <div className="input-group mb-4 bg-light mw-90">
+            <input className="form-control" type="text" placeholder="Search" aria-label="Search"/>
+            <button className="btn my-sm-0" type="submit">Go!</button>
+          </div>
+        </div> */}
+        {/***SearchField component ends***/}
 
-        {/*Search bar with button*/}
-        <div className="input-group mb-4 bg-light mw-90">
-          <input className="form-control" type="text" placeholder="Search" aria-label="Search"/>
-          <button className="btn my-sm-0" type="submit">Go!</button>
-        </div>
-        
-        {/* Start of Block with City information*/}
-        <div className="col-md-6 d-inline-block align-top table-light zero-padding bg-light">
+        <CityInformation/> 
+        {/*** Start of Block with City information***/}
+        {/* <div className="col-md-6 d-inline-block align-top table-light zero-padding bg-light">
           <div className="form-group text-dark little-heading-background">
             <label> 
               City Information
@@ -40,10 +48,10 @@ export default class App extends React.Component {
           <div>
             Tokio
           </div>
-          <hr className="table-light" />
+          <hr className="table-light" /> */}
 
-          {/*Portion with the table begins*/}
-          <div className="form-group">
+          {/***Portion with the table begins***/}
+          {/* <div className="form-group">
             <div className="row">
               <p className="col md-auto bg-secondary border border-secondary mr-1 ml-3 mb-1 text-justify">
                 Temperature (F)
@@ -78,21 +86,22 @@ export default class App extends React.Component {
                 <output>24.16mph</output>
               </p>
             </div>
-          </div> 
-          {/*Portion with the table ends*/}
-        </div>
-        {/* End of Block with City Information*/}
+          </div>  */}
+          {/***Portion with the table ends***/}
+        {/* </div> */}
+        {/*** End of Block with City Information***/}
 
-        {/*Block with Search History*/}
-        <div className="col-md-6 d-inline-block align-top table-light selector-for-some-widget zero-padding bg-light">
+        <SearchHistory/>
+        {/***Block with Search History***/}
+        {/* <div className="col-md-6 d-inline-block align-top table-light selector-for-some-widget zero-padding bg-light">
           <div className="form-group text-dark little-heading-background zero-padding">
             <label> 
               Search History
             </label>
           </div>
-          <div>
-        {/*start of bootstrap table test*/}
-        <div className="container-fluid">
+          <div> */}
+        {/***start of bootstrap table test***/}
+        {/* <div className="container-fluid">
           <table className="table table-striped">
             <tbody>
               <tr>
@@ -132,10 +141,10 @@ export default class App extends React.Component {
               </tr>
             </tbody>
           </table>
-        </div>
-        {/*end of bootstrap table test*/}
-          </div>
-        </div>
+        </div> */}
+        {/***end of bootstrap table test***/}
+          {/* </div>
+        </div> */}
 
 
       </div>
