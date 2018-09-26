@@ -1,7 +1,8 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
+import SearchFieldReducer from './components/SearchField/SearchFieldReducer';
 
 const rootReducer = combineReducers({
-// add reducers
+  search: SearchFieldReducer
 });
 
 export default rootReducer;
