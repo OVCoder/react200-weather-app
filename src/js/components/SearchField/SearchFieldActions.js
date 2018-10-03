@@ -14,7 +14,7 @@ export function searchSanDiegoWeather (){
   return{
     type: 'SEARCH_SAN_DIEGO_WEATHER',
     payload: 
-      axios.get('https://api.openweathermap.org/data/2.5/weather?q=San%20Diego&units=imperial&APPID=ecbc904cd7e9115de1813beb1cb5b058')
+      axios.get('https://api.openweathermap.org/data/2.5/weather?q=San%20Diego&units=imperial&APPID=DELETED')
         .then(response => response.data)
           //  console.log(response.data.main.temp,"temp",
                         // response.data.main.pressure,"pressure", 
