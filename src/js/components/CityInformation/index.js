@@ -5,7 +5,13 @@ import CityInformation from './CityInformation';
 //that's passed to the props of the component.
 function mapStoreToProps(store){
   return{
-    // searchCity: store.search.searchCity
+    currentCity: store.search.searchCity,
+    temp: store.search.temp,
+    pressure: store.search.pressure,
+    humidity: store.search.humidity,
+    lowTemp: store.search.temp_min,
+    highTemp: store.search.temp_max,
+    windSpeed: store.search.windSpeed
   }
 }
 

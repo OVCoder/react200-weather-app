@@ -1,11 +1,21 @@
 import React from 'react';
 
+//Import of action creators
+import {
+  displayCurrentCity
+}  
+  from './CityInfoActions';
+
+
 export default class CityInformation extends React.Component {
   constructor (props){
     super (props);
   }
 
   render(){
+    //Values below were provided by connect()
+    const {currentCity, temp, pressure, humidity, lowTemp, highTemp, windSpeed} = this.props;
+    console.log(currentCity," THIS IS CURRENT SEARCH CITY");
     return(
       <div className="col-md-6 d-inline-block align-top table-light zero-padding bg-light">
         <div className="form-group text-dark little-heading-background">
@@ -13,8 +23,8 @@ export default class CityInformation extends React.Component {
             City Information
           </label>
         </div>
-        <div>
-          Tokio
+        <div
+          value={currentCity}>{currentCity}
         </div>
         <hr className="table-light" />
 
@@ -24,34 +34,34 @@ export default class CityInformation extends React.Component {
             <p className="col md-auto bg-secondary border border-secondary mr-1 ml-3 mb-1 text-justify">
               Temperature (F)
                 <br/>
-                <output> 65.62F</output>
+                <output> {temp}</output>
             </p>
             <p className="col bg-secondary border border-secondary mr-1 mb-1">
               Pressure
               <br/>
-              <output>997</output>
+              <output>{pressure}</output>
             </p>
             <p className="col bg-secondary border border-secondary mr-1 mb-1">
               Humidity
               <br/>
-              <output>39%</output>
+              <output>{humidity}</output>
             </p>
           </div>
           <div className="row">
             <p className="col bg-secondary border border-secondary mr-1 ml-3">
               Lowest Temp (F)
               <br/>
-              <output>62.01F</output>
+              <output>{lowTemp}</output>
             </p>
             <p className="col bg-secondary border border-secondary mr-1">
               Highest Temp (F)
               <br/>
-              <output>71.01F</output>
+              <output>{highTemp}</output>
             </p>
             <p className="col bg-secondary border border-secondary mr-1">
               Wind Speed
               <br/>
-              <output>24.16mph</output>
+              <output>{windSpeed}</output>
             </p>
           </div>
         </div> 

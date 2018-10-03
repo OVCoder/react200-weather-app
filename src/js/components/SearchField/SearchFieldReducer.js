@@ -1,5 +1,11 @@
 const defaultState = {
-  searchCity: ''
+  searchCity: 'TEST ',
+  temp: 0,
+  pressure: 0,
+  humidity: 0,
+  temp_min: 0,
+  temp_max: 0,
+  windSpeed: 0
 };
 
 export default function SearchFieldReducer (state = defaultState, action){
@@ -10,20 +16,27 @@ export default function SearchFieldReducer (state = defaultState, action){
       // will return an object
       return{
         ...state,
-      // but overwriting searchCity
-      searchCity: payload.searchCity  
+        // but overwriting searchCity
+        searchCity: payload.searchCity  
       };   
     }
-    case 'SEARCH_SAN_DIEGO_WEATHER' : {
+    case 'SEARCH_SAN_DIEGO_WEATHER_FULFILLED' : {
       return{
         ...state,
-        searchCity: payload.searchCity
+        searchCity: payload.name,
+        temp: payload.main.temp,
+        pressure: payload.main.pressure,
+        humidity: payload.main.humidity,
+        temp_min: payload.main.temp_min,
+        temp_max: payload.main.temp_max,
+        windSpeed: payload.wind.speed
       };
     }
     case 'SEARCH_NEW_YORK_WEATHER' : {
       return{
         ...state,
-        searchCity: payload.searchCity
+        searchCity: payload.searchCity,
+        temp: payload.temp
       };
     }
     case 'SEARCH_WASHINGTONDC_WEATHER' : {

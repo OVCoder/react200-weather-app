@@ -1,8 +1,10 @@
 import React from 'react';
+import axios from 'axios';
 
 //Import of action creators
 import {
-  updateSearchField, 
+  updateSearchField,
+  makeAPIcall, 
   searchSanDiegoWeather,
   searchNewYorkWeather,
   searchWashingtonDCWeather,
@@ -20,6 +22,7 @@ export default class SearchField extends React.Component {
     //because these methods are called back by
     //event emitters (which lose context).
     this.handleSearchCityInput = this.handleSearchCityInput.bind(this);
+    this.handleAPIcall = this.handleAPIcall.bind(this);
     this.handleSanDiegoSearch = this.handleSanDiegoSearch.bind(this);
     this.handleNewYorkSearch = this.handleNewYorkSearch.bind(this);
     this.handleWashingtonDCSearch = this.handleWashingtonDCSearch.bind(this);
@@ -32,11 +35,18 @@ export default class SearchField extends React.Component {
     pass actions to, in order to change the store.*/
     const {dispatch} = this.props;
     const {value} = event.target;
+    console.log(event.target.value, " VALUE!");
     console.log(this.props,"this is THIS.PROPS");
     dispatch(updateSearchField(value));
   }
-  handleSanDiegoSearch(){
+
+  handleAPIcall(){
     const {dispatch} = this.props;
+    dispatch(makeAPIcall());
+  }
+
+  handleSanDiegoSearch(){
+    const {dispatch} = this.props;  
     dispatch(searchSanDiegoWeather());
   }
   handleNewYorkSearch(){
@@ -59,6 +69,7 @@ export default class SearchField extends React.Component {
   render(){
     //Values below were provided by connect()
     const {searchCity} = this.props;
+    console.log(searchCity,"SearchCity");
     return(
       <div>
         {/* Buttons with city names */}
@@ -99,7 +110,8 @@ export default class SearchField extends React.Component {
             onChange={this.handleSearchCityInput}/>
           <button 
             className="btn my-sm-0" 
-            type="submit">Go!
+            type="submit"
+            onClick={this.handleAPIcall}>Go!
           </button>
         </div>
       </div>

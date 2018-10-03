@@ -1,22 +1,36 @@
+import axios from 'axios';  
+
 //Below are Action Creators
+
 
 export function updateSearchField (city){
   return{
     type:'UPDATE_SEARCH_CITY',
     payload: {searchCity: city}
   };
-}
+} 
 
 export function searchSanDiegoWeather (){
   return{
     type: 'SEARCH_SAN_DIEGO_WEATHER',
-    payload: {searchCity: 'San Diego'}
-  };
+    payload: 
+      axios.get('https://api.openweathermap.org/data/2.5/weather?q=San%20Diego&units=imperial&APPID=ecbc904cd7e9115de1813beb1cb5b058')
+        .then(response => response.data)
+          //  console.log(response.data.main.temp,"temp",
+                        // response.data.main.pressure,"pressure", 
+                        // response.data.main.humidity,"humidity",
+                        // response.data.main.temp_min, "temp_min",
+                        // response.data.main.temp_max,"temp_max ",
+                        // response.data.wind.speed,"windSpeed ",
+                        // response.data.name, "CITY NAME",
+                        // "!!! this is RESPONSE.DATA")
+  }
 }
 export function searchNewYorkWeather (){
   return{
     type: 'SEARCH_NEW_YORK_WEATHER',
-    payload: {searchCity: 'New York'}
+    payload: {searchCity: 'New York',
+              temp: 20}
   };
 }
 export function searchWashingtonDCWeather(){
