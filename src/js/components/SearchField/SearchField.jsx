@@ -1,15 +1,10 @@
 import React from 'react';
-import axios from 'axios';
 
 //Import of action creators
 import {
   updateSearchField,
-  makeAPIcall, 
-  searchSanDiegoWeather,
-  searchNewYorkWeather,
-  searchWashingtonDCWeather,
-  searchLondonWeather,
-  searchTokyoWeather} 
+  searchWeather
+} 
   from './SearchFieldActions';
 
 
@@ -21,8 +16,9 @@ export default class SearchField extends React.Component {
     //of the components. This only has to be done,
     //because these methods are called back by
     //event emitters (which lose context).
+
     this.handleSearchCityInput = this.handleSearchCityInput.bind(this);
-    this.handleAPIcall = this.handleAPIcall.bind(this);
+    this.handleAnyCitySearch = this.handleAnyCitySearch.bind(this);
     this.handleSanDiegoSearch = this.handleSanDiegoSearch.bind(this);
     this.handleNewYorkSearch = this.handleNewYorkSearch.bind(this);
     this.handleWashingtonDCSearch = this.handleWashingtonDCSearch.bind(this);
@@ -39,66 +35,75 @@ export default class SearchField extends React.Component {
     console.log(this.props,"this is THIS.PROPS");
     dispatch(updateSearchField(value));
   }
-
-  handleAPIcall(){
-    const {dispatch} = this.props;
-    dispatch(makeAPIcall());
+  
+  handleAnyCitySearch(){
+    const {dispatch, searchCity} = this.props;
+    dispatch(searchWeather(searchCity));
   }
-
   handleSanDiegoSearch(){
     const {dispatch} = this.props;  
-    dispatch(searchSanDiegoWeather());
+    var city = "San Diego";
+    dispatch(searchWeather(city));
   }
+
   handleNewYorkSearch(){
     const {dispatch} = this.props;
-    dispatch(searchNewYorkWeather());
+    var city = "New York";
+    dispatch(searchWeather(city));
   }
   handleWashingtonDCSearch(){
     const {dispatch} = this.props;
-    dispatch(searchWashingtonDCWeather());
+    var city = "Washington";
+    dispatch(searchWeather(city));
   }
   handleLondonSearch(){
     const {dispatch} = this.props;
-    dispatch(searchLondonWeather());
+    var city = "London";
+    dispatch(searchWeather(city));
   }
   handleTokyoSearch(){
     const {dispatch} = this.props;
-    dispatch(searchTokyoWeather());
+    var city = "Tokyo";
+    dispatch(searchWeather(city));
   }
   
   render(){
     //Values below were provided by connect()
     const {searchCity} = this.props;
-    console.log(searchCity,"SearchCity");
+    console.log(searchCity,"SearchCity from this.props");
     return(
       <div>
         {/* Buttons with city names */}
         <button 
           className="btn btn-primary" 
           type="button" 
-          onClick={this.handleSanDiegoSearch}>San Diego
+          onClick={this.handleSanDiegoSearch}
+          >San Diego
         </button>
         <button 
           className="btn btn-primary" 
           type="button"
-          onClick={this.handleNewYorkSearch}>New York
+          onClick={this.handleNewYorkSearch}
+          >New York
         </button>
         <button 
           className="btn btn-primary" 
           type="button"
-          onClick={this.handleWashingtonDCSearch} > Washington DC
+          onClick={this.handleWashingtonDCSearch} 
+          > Washington DC
         </button>
         <button 
           className="btn btn-primary" 
           type="button" 
-          onClick={this.handleLondonSearch}> London
+          onClick={this.handleLondonSearch}
+          > London
         </button>
         <button 
           className="btn btn-primary" 
           type="button" 
-          onClick={this.handleTokyoSearch}> Tokyo
+          onClick={this.handleTokyoSearch}
+          > Tokyo
         </button>
-
 
         {/*Search bar with button*/}
         <div className="input-group mb-4 bg-light mw-90">
@@ -111,7 +116,8 @@ export default class SearchField extends React.Component {
           <button 
             className="btn my-sm-0" 
             type="submit"
-            onClick={this.handleAPIcall}>Go!
+            onClick={this.handleAnyCitySearch}
+            >Go!
           </button>
         </div>
       </div>

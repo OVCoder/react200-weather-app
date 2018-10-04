@@ -23,8 +23,7 @@ export default class CityInformation extends React.Component {
             City Information
           </label>
         </div>
-        <div
-          value={currentCity}>{currentCity}
+        <div>{currentCity}
         </div>
         <hr className="table-light" />
 
@@ -37,12 +36,12 @@ export default class CityInformation extends React.Component {
                 <output> {temp}</output>
             </p>
             <p className="col bg-secondary border border-secondary mr-1 mb-1">
-              Pressure
+              Pressure (hPa)
               <br/>
               <output>{pressure}</output>
             </p>
             <p className="col bg-secondary border border-secondary mr-1 mb-1">
-              Humidity
+              Humidity (%)
               <br/>
               <output>{humidity}</output>
             </p>
@@ -59,7 +58,7 @@ export default class CityInformation extends React.Component {
               <output>{highTemp}</output>
             </p>
             <p className="col bg-secondary border border-secondary mr-1">
-              Wind Speed
+              Wind Speed (miles/hour)
               <br/>
               <output>{windSpeed}</output>
             </p>
