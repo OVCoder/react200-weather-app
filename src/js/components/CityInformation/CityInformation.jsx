@@ -41,7 +41,7 @@ export default class CityInformation extends React.Component {
               <output>{pressure}</output>
             </p>
             <p className="col bg-secondary border border-secondary mr-1 mb-1">
-              Humidity (%)
+              Humidity (%) 
               <br/>
               <output>{humidity}</output>
             </p>

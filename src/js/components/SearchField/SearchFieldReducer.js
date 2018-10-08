@@ -30,7 +30,8 @@ export default function SearchFieldReducer (state = defaultState, action){
         temp_min: payload.main.temp_min,
         temp_max: payload.main.temp_max,
         windSpeed: payload.wind.speed
-      };
+      };  
+      
     }
     case 'SEARCH_SAN_DIEGO_WEATHER_REJECTED' : {
       return{

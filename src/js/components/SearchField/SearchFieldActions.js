@@ -12,7 +12,7 @@ export function updateSearchField (city){
 
 export function searchWeather(cityName){
   var cityForURI=encodeURIComponent(cityName);
-  var APIkey = '!!!YOUR API KEY!!!';
+  var APIkey = 'ecbc904cd7e9115de1813beb1cb5b058';
   console.log('https://api.openweathermap.org/data/2.5/weather?q='+ cityForURI +'&units=imperial&APPID='+APIkey,"this is URL");
   return{
     type: 'SEARCH_WEATHER',
