@@ -24,20 +24,17 @@ export default function SearchFieldReducer (state = defaultState, action){
       };   
     }
     case 'SEARCH_WEATHER_FULFILLED' : {
-      // var unixTimeStamp = payload.dt;
-      // var dateTime = new Date (unixTimeStamp*1000);
-      // var formattedTime;
-
-      // var hours = dateTime.getHours();
-      // var minutes = dateTime.getMinutes();
-      // var seconds = dateTime.getSeconds();
-      // console.log(hours,"HOURS,",minutes,"MINUTES,",seconds,"SECONDS");
-      // formattedTime = hours+':'+ minutes + ':' + seconds;
-      // console.log(dateTime, "THIS IS dateTime var")
       var date = new Date();
       var months = ["01","02","03","04","05","06","07","08","09","10","11","12"];
       var currentDate = months[date.getMonth()]+'/'+date.getDate()+'/'+date.getFullYear();
-      var currentTime = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+      var minutes = date.getMinutes();
+      function minuteDigits (minutesToBeChecked){
+        if (minutesToBeChecked<10){
+          minutes = "0"+ minutesToBeChecked;
+        }
+      }
+      minuteDigits(minutes);
+      var currentTime = date.getHours()+":"+ minutes +":"+date.getSeconds();
       console.log(currentDate,"THIS IS CURRENT DATE", currentTime, "THIS IS CURRENT TIME");
       
       var originalSearchList = state.searchList;
