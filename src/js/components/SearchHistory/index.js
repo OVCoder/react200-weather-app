@@ -7,7 +7,8 @@ function mapStoreToProps(store){
   return{
     searchCity: store.search.searchCity,
     date: store.search.date,
-    time: store.search.time
+    time: store.search.time,
+    searchList: store.search.searchList
   }
 }
 

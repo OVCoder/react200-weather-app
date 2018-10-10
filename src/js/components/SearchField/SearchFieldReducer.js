@@ -49,6 +49,15 @@ export default function SearchFieldReducer (state = defaultState, action){
       var newSearchObject = {'searchCity': payload.name, 'date': currentDate, 'time': currentTime};
       console.log(typeof(newSearchObject)); //object
       newArray.push(newSearchObject);
+
+      function keepListShort (newArray){
+        if (newArray.length>5){
+          var index = newArray.length - 5;
+          console.log (index);
+          newArray.splice(0, index);
+        }
+      }
+      keepListShort(newArray);
       console.log(typeof(newArray)); //number
       console.log(newArray, "NEWARRAY");
       return{
