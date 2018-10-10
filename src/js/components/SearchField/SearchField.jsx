@@ -4,6 +4,7 @@ import React from 'react';
 import {
   updateSearchField,
   searchWeather
+  // createSearchHistory
 } 
   from './SearchFieldActions';
 
@@ -34,11 +35,13 @@ export default class SearchField extends React.Component {
     console.log(event.target.value, " VALUE!");
     console.log(this.props,"this is THIS.PROPS");
     dispatch(updateSearchField(value));
+    
   }
   
   handleAnyCitySearch(){
     const {dispatch, searchCity} = this.props;
     dispatch(searchWeather(searchCity));
+    // dispatch(createSearchHistory());
   }
   handleSanDiegoSearch(){
     const {dispatch} = this.props;  

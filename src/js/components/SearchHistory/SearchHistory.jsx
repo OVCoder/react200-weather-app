@@ -6,6 +6,7 @@ export default class SearchHistory extends React.Component{
   }
 
   render(){
+    const {searchCity, date, time } = this.props;
     return (
       <div className="col-md-6 d-inline-block align-top table-light selector-for-some-widget zero-padding bg-light">
         <div className="form-group text-dark little-heading-background zero-padding">
@@ -19,10 +20,10 @@ export default class SearchHistory extends React.Component{
             <table className="table table-striped">
               <tbody>
                 <tr>
-                  <td>San Diego</td>
+                  <td>{searchCity}</td>
                   <td>
-                    <div>04/28/2016</div>
-                    <div>19:04:46</div>
+                    <div>{date}</div>
+                    <div>{time}</div>
                   </td>
                 </tr>
                 <tr>

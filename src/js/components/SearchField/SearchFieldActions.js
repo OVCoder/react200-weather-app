@@ -13,7 +13,9 @@ export function updateSearchField (city){
 export function searchWeather(cityName){
   var cityForURI=encodeURIComponent(cityName);
   var APIkey = 'ecbc904cd7e9115de1813beb1cb5b058';
-  console.log('https://api.openweathermap.org/data/2.5/weather?q='+ cityForURI +'&units=imperial&APPID='+APIkey,"this is URL");
+  axios.get('https://api.openweathermap.org/data/2.5/weather?q='+ cityForURI +'&units=imperial&APPID='+APIkey)
+  .then((response) => {console.log(response.data)})
+  
   return{
     type: 'SEARCH_WEATHER',
     payload:
@@ -30,3 +32,10 @@ export function searchWeather(cityName){
                         // "!!! this is RESPONSE.DATA")
   }
 }
+
+// export function createSearchHistory(city){
+//  return {
+//    type: 'SEARCH_HISTORY',
+//    payload: {searchCity: city, date: '01/01/2018', time: '12:30:08'}
+//  } 
+// }
